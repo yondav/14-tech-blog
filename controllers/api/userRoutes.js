@@ -1,0 +1,96 @@
+const { User } = require('../../models');
+const router = require('express').Router();
+const checkAuth = require('../../utils/authorization');
+
+// get all users for dashboard view
+router.get('/', async (req, res) => {
+  try {
+    const allUsers = await User.findAll();
+    const userData = allUsers.map((user) => user.get({ plain: true }));
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Create a new user
+router.post('/', async (req, res) => {
+  try {
+    const newUserData = await User.create({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password,
+    });
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res.status(200).json(newUserData);
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// login validation
+router.post('/login', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        email: req.body.email,
+      },
+    });
+
+    if (!userData) {
+      res.status(400).json('Incorrect email or password...');
+      return;
+    }
+
+    const passwordData = await userData.validatePassword(req.body.password);
+
+    if (!passwordData) {
+      res.status(400).json('Incorrect email or password...');
+      return;
+    }
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.status(200).json({ user: userData, message: 'Welcome aboard!' });
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// logout
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
+  }
+});
+
+// At the moment the update hook is not working. Look into this later
+router.put('/:id', async (req, res) => {
+  try {
+    const updatedUserData = await User.update(
+      {
+        email: req.body.email,
+        password: req.body.password,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(updatedUserData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+module.exports = router;
