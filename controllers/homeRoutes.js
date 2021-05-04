@@ -40,7 +40,7 @@ router.get('/', async (req, res) => {
 // come back to it ***
 router.get('/login', async (req, res) => {
   try {
-    res.status(200).render('login');
+    res.status(200).render('login', { layout: 'login.handlebars' });
   } catch (err) {
     res.status(400).json(err);
   }
@@ -49,7 +49,7 @@ router.get('/login', async (req, res) => {
 // come back to it ***
 router.get('/signup', async (req, res) => {
   try {
-    res.status(200).json('Creating a new account!');
+    res.status(200).render('signup', { layout: 'login.handlebars' });
   } catch (err) {
     res.status(500).json(err);
   }
