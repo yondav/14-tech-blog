@@ -1,0 +1,40 @@
+<div class="container home-feed">
+  <div class="container-fluid bgimage">
+    <div class="overlay">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h1>Recent Posts</h1>
+        </div>
+      </div>
+    </div>
+{{#each posts as |post|}}
+    <div class="row no-gutters post-bar">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 post-title">
+      </div>
+    </div>
+    <div class="row no-gutters post-bar">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h4 class="post-title">{{ post.post_title }}: {</h4>
+        <article class="post">
+        <span class="author">// {{ post.post_author.username }}</span>
+        <br>
+        <span class="created">// {{ format_date post.createdAt }}</span>
+          <p class="post-text">
+            blog_content: '{{ post.blog_content }}',
+          </p>
+          <p class="post-text">post_comments: <span class="comments-expand">{...} <i class="fas fa-sort-down expand"></i></span></p>
+          <p>[</p>
+          {{#each post.comment_content as |comment|}}
+          <pre class="post-comments">
+            {
+              comment_content: {{ comment.comment_content }}
+            }</pre>
+          {{/each}}
+          <p>]</p>
+        </article>
+        <h4 class="close-post">},</h4>
+      </div>
+    </div>
+{{/each}}
+  </div>
+</div>

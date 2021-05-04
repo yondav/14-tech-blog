@@ -1,3 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro&display=swap');
+:root {
+  --fnt-code: 'Source Code Pro', monospace;
+  --fnt-reg: 'Roboto', sans-serif;
+  --darkest: #1b1e2b;
+  --darker: #202536;
+  --lightest: #fafafa;
+  --lighter: #b2ccd6;
+  --yelow: #fbbf47;
+  --pink: #c693c6;
+  --teal: #56b3b4;
+  --green: #718a6b;
+  --inset: #2a3044;
+}
+
 body {
-  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--fnt-reg);
+  background-color: var(--darkest);
+}
+
+header {
+  width: 100vw;
+  text-align: center;
+  background-color: var(--darker);
+}
+
+header h1 {
+  padding: 1rem;
+  font-size: 8em;
+  font-family: var(--fnt-code);
+  color: var(--yelow);
+}
+
+.title {
+  color: var(--pink);
+}
+
+nav,
+.post-bar {
+  font-family: var(--fnt-code);
+  font-size: 1.2em;
+  background-color: var(--darker);
+  box-shadow: inset var(--inset) 0.95px 1.95px 2.6px;
+}
+
+nav a {
+  margin: 0 4rem;
+  color: var(--lighter);
+  transition: all 330ms ease-in-out !important;
+}
+
+nav a:hover {
+  color: var(--teal);
+  transform: scale(1.1);
+}
+
+.login-cards {
+  display: flex;
+  justify-content: space-around;
+  width: 75vw;
+  margin: 3rem 0;
+}
+
+.card {
+  margin-left: 0;
+  margin-right: 0;
+  color: var(--lightest);
+  background-color: var(--darker);
+  box-shadow: inset var(--inset) 0.95px 1.95px 2.6px;
+}
+
+.card-header {
+  text-align: center;
+  color: var(--lightest);
+  background-color: var(--darker) !important;
+  box-shadow: inset var(--inset) 0px -1.95px 2.6px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  background-color: #292d3e;
+  border: none;
+  box-shadow: inset var(--inset) 0.95px 1.95px 2.6px;
+}
+
+.login-btn {
+  width: 100% !important;
+  margin-top: 1rem;
+}
+
+.home-feed {
+  width: 85vw;
+  margin-top: 3rem;
+  padding: 0;
+  background-color: white;
+}
+
+.bgimage {
+  align-items: center;
+  width: 100%;
+  height: 20rem;
+  padding: 0;
+  text-align: center;
+  background-image: url('../images/code.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 20rem;
+  background-color: rgba(42, 48, 68, 0.637);
+}
+
+.bgimage h1 {
+  font-size: 6em;
+  font-family: var(--fnt-code);
+  color: var(--lightest);
+  text-shadow: 2px 2px #333;
+}
+
+.post-bar {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1.5rem;
+  min-height: 2rem;
+}
+
+.created,
+.author {
+  text-align: left;
+  font-style: italic;
+  color: var(--green);
+}
+
+.post {
+  margin-left: 1.5rem;
+  text-align: left;
+  color: var(--lighter);
+}
+
+.post-title,
+.close-post {
+  text-align: left;
+  color: var(--teal);
+}
+
+/* .post-text {
+} */
+.comments-expand,
+.expand {
+  font-style: italic;
 }

@@ -19,6 +19,11 @@ Post.init(
         key: 'id',
       },
     },
+    post_title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: 'Blog Post Title Placeholder',
+    },
     blog_content: {
       type: DataTypes.TEXT,
       allowNull: false,
