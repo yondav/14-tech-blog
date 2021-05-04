@@ -10,13 +10,20 @@
   --pink: #c693c6;
   --teal: #56b3b4;
   --green: #718a6b;
+  --lime: #c3e88d;
   --inset: #2a3044;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
+  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 100vw;
   font-family: var(--fnt-reg);
   background-color: var(--darkest);
 }
@@ -42,6 +49,7 @@ nav,
 .post-bar {
   font-family: var(--fnt-code);
   font-size: 1.2em;
+  color: var(--lighter);
   background-color: var(--darker);
   box-shadow: inset var(--inset) 0.95px 1.95px 2.6px;
 }
@@ -164,9 +172,50 @@ form {
   color: var(--teal);
 }
 
-/* .post-text {
-} */
 .comments-expand,
 .expand {
   font-style: italic;
+  cursor: pointer;
+}
+
+.indent {
+  margin-left: 1.5rem;
+}
+
+.string {
+  color: var(--lime);
+}
+
+.bracket {
+  color: var(--yelow);
+}
+
+.curly {
+  color: var(--pink);
+}
+
+.hide {
+  display: none;
+}
+
+@media only screen and (max-width: 800px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 515px) {
+  header h1 {
+    font-size: 5em;
+  }
+
+  .nav {
+    flex-direction: column;
+  }
 }

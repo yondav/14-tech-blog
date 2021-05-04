@@ -20,17 +20,26 @@
         <br>
         <span class="created">// {{ format_date post.createdAt }}</span>
           <p class="post-text">
-            blog_content: '{{ post.blog_content }}',
+            post: <span class="string">'{{ post.blog_content }}'</span>,
           </p>
-          <p class="post-text">post_comments: <span class="comments-expand">{...} <i class="fas fa-sort-down expand"></i></span></p>
-          <p>[</p>
-          {{#each post.comment_content as |comment|}}
-          <pre class="post-comments">
-            {
-              comment_content: {{ comment.comment_content }}
-            }</pre>
-          {{/each}}
-          <p>]</p>
+          <p class="post-text">comments: <span class="comments-expand">{...} <i class="fas fa-sort-down expand"></i></span></p>
+          <div class="comments indent hide">
+            <p class="bracket">[</p>
+            <div class="indent">
+              {{#each post.post_comments as |comment|}}
+              <p class="curly">{</p>
+              <div class="indent">
+                <p>comment: <span class="string">'{{ comment.comment_content }}'</span>,</p>
+                {{#each comment.comment_author as |author|}}
+                <p>author: <span class="string">'{{ author }}'</span>,</p>
+                {{/each}}
+                <p class="created">// {{ format_date comment.createdAt }}</p>
+              </div>
+              <p class="curly">},</p>
+              {{/each}}
+            </div>
+            <p class="bracket">],</p>
+          </div>
         </article>
         <h4 class="close-post">},</h4>
       </div>
@@ -38,3 +47,4 @@
 {{/each}}
   </div>
 </div>
+<script src="/js/homepage.js"></script>
