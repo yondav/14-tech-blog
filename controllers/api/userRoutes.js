@@ -1,6 +1,6 @@
 const { User } = require('../../models');
 const router = require('express').Router();
-const checkAuth = require('../../utils/authorization');
+const withAuth = require('../../utils/auth');
 
 // get all users for dashboard view
 router.get('/', async (req, res) => {
@@ -35,7 +35,7 @@ router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
 

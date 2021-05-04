@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const { User, Post } = require('../models');
-const checkAuthorization = require('../utils/authorization');
+const withAuth = require('../utils/auth');
 
 // Get all posts made by user for dashboard display
 // Corresponds to user_id
-router.get('/:id', checkAuthorization, async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
   try {
     const userPosts = await User.findByPk(req.params.id, {
       include: { model: Post, as: 'post_author' },

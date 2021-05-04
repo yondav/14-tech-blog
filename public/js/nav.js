@@ -2,19 +2,19 @@ const navExpand = document.querySelector('.nav-expand');
 const navList = document.querySelector('.nav');
 
 const navCollapse = () => {
-  if (screen.width <= 515) {
+  if (screen.width <= 515 || window.innerWidth <= 515) {
     if (!navList.classList.contains('hide')) {
-      navList.classList.add('hide');
+      navList.classList.toggle('hide');
     }
     if (navExpand.classList.contains('hide')) {
-      navExpand.classList.remove('hide');
+      navExpand.classList.toggle('hide');
     }
   } else {
     if (navList.classList.contains('hide')) {
-      navList.classList.remove('hide');
+      navList.classList.toggle('hide');
     }
     if (!navExpand.classList.contains('hide')) {
-      navExpand.classList.add('hide');
+      navExpand.classList.toggle('hide');
     }
   }
 };

@@ -211,6 +211,7 @@ form {
 .post {
   margin-left: 1.5rem;
   text-align: left;
+  font-size: 0.9em;
   color: var(--lighter);
 }
 
@@ -269,5 +270,9 @@ form {
 
   .nav {
     flex-direction: column;
+  }
+
+  .home-feed {
+    width: 100vw;
   }
 }
