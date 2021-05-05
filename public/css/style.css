@@ -243,6 +243,17 @@ input {
   color: var(--teal);
 }
 
+.post-title a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.post-title a:hover,
+.post-title a:focus,
+.post-title a:active {
+  color: var(--yelow);
+}
+
 .comments-expand,
 .expand {
   font-style: italic;
