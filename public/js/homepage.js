@@ -1,6 +1,10 @@
-const commentsExpand = document.querySelector('.comments-expand');
-const comments = document.querySelector('.comments');
+const commentsExpand = document.querySelectorAll('.comments-expand');
+const comments = document.querySelectorAll('.comments');
 
-commentsExpand.addEventListener('click', () => {
-  comments.classList.toggle('hide');
+comments.forEach((comment) => {
+  commentsExpand.forEach((expand) => {
+    expand.addEventListener('click', () => {
+      comment.classList.toggle('hide');
+    });
+  });
 });

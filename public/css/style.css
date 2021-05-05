@@ -253,6 +253,25 @@ input {
   margin-left: 1.5rem;
 }
 
+.comment-body {
+  width: 85% !important;
+  height: 5rem;
+}
+
+.post-btn {
+  width: 5rem;
+  color: var(--lighter);
+  /* background-color: var(--lighter); */
+  border: 1px solid var(--lighter);
+}
+
+.post-btn:hover,
+.post-btn:focus,
+.post-btn:active {
+  background-color: var(--pink);
+  border: none;
+}
+
 .string {
   color: var(--lime);
 }

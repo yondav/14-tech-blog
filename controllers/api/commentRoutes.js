@@ -3,13 +3,9 @@ const router = require('express').Router();
 
 // Create a new comment
 // Corresponds with user_id of user who posted and the post_id that the comment is for
-router.post('/:userid/:postid', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const newComment = await Comment.create({
-      user_id: req.params.userid,
-      post_id: req.params.postid,
-      comment_content: req.body.comment_content,
-    });
+    const newComment = await Comment.create(req.body);
     res.status(200).json(newComment);
   } catch (err) {
     res.status(500).json(err);
