@@ -23,6 +23,7 @@ router.post('/', async (req, res) => {
     });
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.username = newUserData.username;
       res.status(200).json(newUserData);
     });
   } catch (err) {
@@ -40,19 +41,20 @@ router.post('/login', async (req, res) => {
     });
 
     if (!userData) {
-      res.status(400).json('Incorrect email or password...');
+      res.status(400).json('Incorrect username or password...');
       return;
     }
 
     const passwordData = await userData.validatePassword(req.body.password);
 
     if (!passwordData) {
-      res.status(400).json('Incorrect email or password...');
+      res.status(400).json('Incorrect username or password...');
       return;
     }
 
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.username = userData.username;
       req.session.logged_in = true;
 
       res.status(200).json({ user: userData, message: 'Welcome aboard!' });

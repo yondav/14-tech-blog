@@ -3,7 +3,6 @@ const { User, Post, Comment } = require('../models');
 
 // Get all posts, iclude author and comments
 router.get('/', async (req, res) => {
-  console.log(req.session.loggedIn);
   try {
     const postsData = await Post.findAll({
       include: [
@@ -29,9 +28,11 @@ router.get('/', async (req, res) => {
     const posts = postsData.map((post) => post.get({ plain: true }));
     res.render('homepage', {
       posts,
-      // logged_in: req.session.logged_in, // logged in status from the session object
-      // userId: req.session.user_id, // user id from the session object
+      logged_in: req.session.logged_in, // logged in status from the session object
+      userId: req.session.user_id, // user id from the session object
+      userName: req.session.username,
     });
+    console.log(req.session);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -53,6 +54,8 @@ router.get('/login', async (req, res) => {
 
 // come back to it ***
 router.get('/signup', async (req, res) => {
+  console.log(req.session);
+
   try {
     res.status(200).render('signup', { layout: 'login.handlebars' });
   } catch (err) {
