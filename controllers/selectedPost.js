@@ -25,9 +25,9 @@ router.get('/:id', withAuth, async (req, res) => {
       ],
     });
     const post = newPostData.get({ plain: true });
-    res.render('signup', post);
+    res.render('single-post', post);
     console.log('console.log', post);
-    res.status(200).json(newPostData);
+    // res.status(200).json(newPostData);
   } catch (err) {
     res.status(400).json('Page not found!');
   }
