@@ -9,4 +9,7 @@ module.exports = {
 
     return `${postDate}, ${postTime}`;
   },
+  if_equal: (x, y) => {
+    return x === y;
+  },
 };

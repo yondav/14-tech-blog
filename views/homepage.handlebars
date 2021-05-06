@@ -29,9 +29,7 @@
               <p class="curly">{</p>
               <div class="indent">
                 <p>comment: <span class="string">'{{ comment.comment_content }}'</span>,</p>
-                {{#each comment.comment_author as |author|}}
-                <p>author: <span class="string">'{{ author }}'</span>,</p>
-                {{/each}}
+                <p>author: <span class="string comment-author" data-author="{{comment_author.id}}">'{{ comment_author.username }}'</span>,</p>
                 <p class="created">// {{ format_date comment.createdAt }}</p>
               </div>
               <p class="curly">},</p>
