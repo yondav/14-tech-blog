@@ -11,6 +11,6 @@ module.exports = {
   },
 
   if_equal: (x, y) => {
-    x === y;
+    return x === y;
   },
 };

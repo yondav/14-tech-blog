@@ -1,6 +1,7 @@
 const post = document.querySelector('.post');
 const newComment = document.querySelector('.new-comment');
 const commentBody = document.querySelector('.comment-body');
+const commentDelete = document.querySelectorAll('.comment-delete');
 
 const commentFormHandler = async (event) => {
   const userId = commentBody.dataset.user;
@@ -24,3 +25,24 @@ const commentFormHandler = async (event) => {
 if (newComment) {
   newComment.addEventListener('submit', commentFormHandler);
 }
+
+commentDelete.forEach((comment) => {
+  commentDeleteHandler = async (event) => {
+    event.preventDefault;
+    const commentId = comment.dataset.comment;
+
+    const response = await fetch(`/api/comments/${commentId}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.reload();
+    } else {
+      alert('Failed to delete comment.');
+    }
+  };
+
+  comment.addEventListener('click', commentDeleteHandler);
+});
+// commentDelete.addEventListener('click', commentDeleteHandler);

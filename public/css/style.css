@@ -7,6 +7,7 @@
   --lightest: #fafafa;
   --lighter: #b2ccd6;
   --yelow: #fbbf47;
+  --red: #fb6b47;
   --blue: #82aaff;
   --pink: #c693c6;
   --teal: #56b3b4;
@@ -178,6 +179,14 @@ input {
 
 .pink {
   color: var(--pink);
+}
+
+.red {
+  color: var(--red);
+}
+
+.comment-delete {
+  cursor: pointer;
 }
 
 .home-feed {
