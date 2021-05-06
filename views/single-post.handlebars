@@ -31,14 +31,14 @@
       </div>
     </div>
     <div class="row no-gutters justify-content-center post-bar">
-      {{#if ../logged_in}}
+      {{#if logged_in}}
       <form class="col-lg-7 col-md-7 col-sm-7 col-xs-7 post-title new-comment">
         <div class="d-flex">
 
           <span class="teal me-2">new</span> <span class="yellow">Comment</span><span class="teal">.</span><span class="blue">create</span><span class="pink">()</span><span class="teal">;</span>
         </div>
         <div class="d-flex justify-content-between">
-          <textarea class="form-control comment-body" data-user="{{../userId}}"></textarea>
+          <textarea class="form-control comment-body" data-user="{{userId}}"></textarea>
           <button type="submit" class="btn btn-outline-success post-btn">Post</button>
         </div>
       </form>

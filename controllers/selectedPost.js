@@ -26,7 +26,12 @@ router.get('/:id', withAuth, async (req, res) => {
       ],
     });
     const post = newPostData.get({ plain: true });
-    res.render('single-post', post);
+    res.render('single-post', {
+      ...post,
+      logged_in: true,
+      userName: req.session.username,
+      userId: req.session.user_id,
+    });
     console.log('console.log', post);
     // res.status(200).json(newPostData);
   } catch (err) {
