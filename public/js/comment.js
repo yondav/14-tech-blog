@@ -21,4 +21,6 @@ const commentFormHandler = async (event) => {
   console.log(response);
 };
 
-newComment.addEventListener('submit', commentFormHandler);
+if (newComment) {
+  newComment.addEventListener('submit', commentFormHandler);
+}

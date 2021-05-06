@@ -40,4 +40,6 @@ navExpand.addEventListener('click', () => {
 navCollapse();
 window.addEventListener('resize', navCollapse);
 
-logout.addEventListener('click', logoutHandler);
+if (logout) {
+  logout.addEventListener('click', logoutHandler);
+}

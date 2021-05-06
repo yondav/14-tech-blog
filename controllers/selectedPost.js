@@ -5,6 +5,7 @@ const withAuth = require('../utils/auth');
 // Get post by id, include author, comments and comment_authors
 // For single post view
 router.get('/:id', withAuth, async (req, res) => {
+  console.log(req.session);
   try {
     const newPostData = await Post.findByPk(req.params.id, {
       include: [
