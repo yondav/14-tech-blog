@@ -3,8 +3,8 @@ const newComment = document.querySelector('.new-comment');
 const commentBody = document.querySelector('.comment-body');
 
 const commentFormHandler = async (event) => {
-  event.preventDefault();
   const userId = commentBody.dataset.user;
+  event.preventDefault();
   const postId = post.dataset.id;
   const commentContent = commentBody.value;
 
