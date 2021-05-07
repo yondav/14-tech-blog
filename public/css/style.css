@@ -185,6 +185,10 @@ input {
   color: var(--red);
 }
 
+.lighter {
+  color: var(--lighter);
+}
+
 .comment-delete,
 .comment-edit {
   cursor: pointer;
@@ -286,6 +290,10 @@ input {
   border: 1px solid var(--lighter);
 }
 
+.new-post-btn {
+  width: 9rem;
+}
+
 .post-btn:hover,
 .post-btn:focus,
 .post-btn:active {
@@ -303,6 +311,10 @@ input {
 
 .curly {
   color: var(--pink);
+}
+
+.new-post-cont {
+  background-color: var(--darker) !important;
 }
 
 .hide {

@@ -11,7 +11,12 @@ router.get('/:id', withAuth, async (req, res) => {
     });
     const usersPosts = userPosts.get({ plain: true });
     console.log(usersPosts);
-    res.status(200).json(usersPosts);
+    res.render('dashboard', {
+      usersPosts,
+      logged_in: req.session.logged_in, // logged in status from the session object
+      userId: req.session.user_id, // user id from the session object
+      userName: req.session.username,
+    });
   } catch (err) {
     res.status(400).json('Page not found!');
   }

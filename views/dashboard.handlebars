@@ -1,0 +1,97 @@
+<div class="container home-feed">
+  <div class="container-fluid bgimage">
+    <div class="overlay">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h1 class="dash-title" data-id="{{usersPosts.id}}">{{capitalize_first usersPosts.username}}'s Dashboard</h1>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters post-bar">
+      <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 post-title"></div>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 post-title">
+        <button type="button" class="btn btn-outline-success post-btn new-post-btn">
+          <i class="fas fa-plus"></i>
+          New Post
+        </button>
+      </div>
+      <div class="new-post-cont hide">
+        <div class="d-flex justify-content-center">
+          <form class="col-lg-12 col-md-12 col-sm-12 col-xs-12 d-flex post-title new-comment">
+            <div class="d-flex">
+              <span class="teal me-2">new</span> 
+              <span class="yellow">Post</span>
+              <span class="teal">.</span><span class="blue">create</span>
+              <span class="pink">({</span>
+            </div>
+            <div class="d-flex flex-row">
+              <div class=" indent d-flex flex-column">
+                <span class="lighter">title:</span>
+                <span class="lighter">body:</span>
+              </div>
+              <div class="indent d-flex flex-column col-10">
+                <div class="d-flex">
+                  <input type="text" class="form-control" id="new-post-title">
+                  <span class="lighter">;</span>
+                </div>
+                <div class="d-flex">
+                  <textarea class="form-control new-post-body"></textarea>
+                  <span class="lighter">;</span>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex indent">
+              <span class="pink">})</span>
+              <span class="teal">;</span>
+            </div>
+              <br>
+            <button type="submit" class="btn btn-outline-success post-btn">Post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {{#each usersPosts.post_author as |post|}}
+    <div class="row no-gutters post-bar">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h4 class="post-title"><a href="/post/{{post.id}}"> {{post.post_title }}</a>: {</h4>
+        <article class="post" data-id="{{post.id}}">
+        <span class="author">// {{ post.post_author.username }}</span>
+        <br>
+        <span class="created">// {{ format_date post.createdAt }}</span>
+          <p class="post-text">
+            post: <span class="string">'{{ post.blog_content }}'</span>,
+          </p>
+          <p class="post-text">comments: <span class="comments-expand">{...} <i class="fas fa-sort-down expand"></i></span></p>
+          <div class="comments indent hide">
+            <p class="bracket">[</p>
+            <div class="single-comment d-flex">
+              <div class="indent">
+                {{#each post.post_comments as |comment|}}
+                <p class="curly">{</p>
+                {{#if (if_equal ../../userId comment_author.id)}}
+                <div class="d-flex flex-column">
+                  <div class="d-flex justify-content-end">
+                    <i class="far fa-edit comment-edit blue me-2" data-comment="{{comment.id}}"></i>
+                    <i class="far fa-trash-alt comment-delete red me-2" data-comment="{{comment.id}}"></i>
+                  </div>
+                  {{> comment-edit}}
+                </div>
+                {{/if}}
+                <div class="indent">
+                  <p>comment: <span class="string comment-content">'{{ comment.comment_content }}'</span>,</p>
+                  <p>author: <span class="string comment-author" data-author="{{comment_author.id}}">'{{ comment_author.username }}'</span>,</p>
+                  <p class="created">// {{ format_date comment.createdAt }}</p>
+                </div>
+                <p class="curly">},</p>
+                {{/each}}
+              </div>
+            </div>
+            <p class="bracket">],</p>
+          </div>
+        </article>
+        <h4 class="close-post">},</h4>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
