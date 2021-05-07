@@ -32,6 +32,7 @@ router.get('/', async (req, res) => {
 // Create new post
 // Corresponds with user_id (will need it in req.body)
 router.post('/', async (req, res) => {
+  console.log(req.body);
   try {
     const newPost = await Post.create({
       user_id: req.body.user_id,
