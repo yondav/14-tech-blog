@@ -185,7 +185,8 @@ input {
   color: var(--red);
 }
 
-.comment-delete {
+.comment-delete,
+.comment-edit {
   cursor: pointer;
 }
 

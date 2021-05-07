@@ -29,9 +29,12 @@
                 {{#each post.post_comments as |comment|}}
                 <p class="curly">{</p>
                 {{#if (if_equal ../../userId comment_author.id)}}
-                <div class="d-flex justify-content-end">
-                  <i class="far fa-edit comment-edit blue me-2"></i>
-                  <i class="far fa-trash-alt comment-delete red me-2" data-comment="{{comment.id}}"></i>
+                <div class="d-flex flex-column">
+                  <div class="d-flex justify-content-end">
+                    <i class="far fa-edit comment-edit blue me-2" data-comment="{{comment.id}}"></i>
+                    <i class="far fa-trash-alt comment-delete red me-2" data-comment="{{comment.id}}"></i>
+                  </div>
+                  {{> comment-edit}}
                 </div>
                 {{/if}}
                 <div class="indent">
@@ -53,7 +56,6 @@
       {{#if ../logged_in}}
       <form class="col-lg-7 col-md-7 col-sm-7 col-xs-7 post-title new-comment">
         <div class="d-flex">
-
           <span class="teal me-2">new</span> <span class="yellow">Comment</span><span class="teal">.</span><span class="blue">create</span><span class="pink">()</span><span class="teal">;</span>
         </div>
         <div class="d-flex justify-content-between">
