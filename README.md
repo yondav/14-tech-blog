@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+- [Heroku](https://fathomless-chamber-19981.herokuapp.com/)
 - [Repo](https://github.com/yondav/14-tech-blog)
 
 ## About / Synopsis
