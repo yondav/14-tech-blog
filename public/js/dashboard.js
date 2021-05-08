@@ -64,7 +64,8 @@ postEdit.forEach((post) => {
       const postTitle = document.querySelector('.edit-title').value.trim();
       const postBody = document.querySelector('.edit-post-body').value.trim();
 
-      const response = await fetch(`api/posts/${postId}`, {
+      console.log(postTitle);
+      const response = await fetch(`/api/posts/${postId}`, {
         method: 'PUT',
         body: JSON.stringify({ user_id: userId, post_title: postTitle, blog_content: postBody }),
         headers: { 'Content-Type': 'application/json' },
@@ -79,4 +80,6 @@ postEdit.forEach((post) => {
   post.addEventListener('click', postEditHandler);
 });
 
-newPostBtn.addEventListener('click', newPostFormHandler);
+if (newPostBtn) {
+  newPostBtn.addEventListener('click', newPostFormHandler);
+}

@@ -3,10 +3,10 @@ const newComment = document.querySelector('.new-comment');
 const commentBody = document.querySelector('.comment-body');
 const commentDelete = document.querySelectorAll('.comment-delete');
 const commentEdit = document.querySelectorAll('.comment-edit');
-const userId = commentBody.dataset.user;
 
 const commentFormHandler = async (event) => {
   event.preventDefault();
+  const userId = commentBody.dataset.user;
   const postId = post.dataset.id;
   const commentContent = commentBody.value;
 
@@ -49,6 +49,7 @@ commentDelete.forEach((comment) => {
 
 commentEdit.forEach((comment) => {
   commentEditHandler = () => {
+    const userId = commentBody.dataset.user;
     const commentId = comment.dataset.comment;
     const editForm = document.querySelectorAll('.edit-comment');
 
