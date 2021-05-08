@@ -58,6 +58,7 @@ postEdit.forEach((post) => {
   postEditHandler = () => {
     const postId = document.querySelector('.post').dataset.id;
     const editForm = document.querySelector('.edit-post');
+    const userId = commentBody.dataset.user;
 
     editForm.classList.remove('hide');
     editForm.addEventListener('submit', async (event) => {
