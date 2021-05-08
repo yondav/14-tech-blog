@@ -45,6 +45,12 @@ npm i
 
 ## Usage
 
+![get](./readme/home.gif)
+![get](./readme/new-account.gif)
+![get](./readme/login.gif)
+![get](./readme/comments.gif)
+![get](./readme/dashboard.gif)
+
 ---
 
 ### Config
