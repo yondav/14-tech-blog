@@ -36,6 +36,7 @@ newPostFormHandler = () => {
 postDelete.forEach((post) => {
   postDeleteHandler = async (event) => {
     event.preventDefault;
+    const userId = commentBody.dataset.user;
     const postId = post.dataset.comment;
 
     const response = await fetch(`/api/posts/${postId}`, {
