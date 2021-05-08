@@ -10,7 +10,7 @@ router.get('/:id', withAuth, async (req, res) => {
       include: { model: Post, as: 'post_author' },
     });
     const usersPosts = userPosts.get({ plain: true });
-    // console.log(usersPosts);
+    console.log(usersPosts);
     res.render('dashboard', {
       usersPosts,
       logged_in: req.session.logged_in, // logged in status from the session object

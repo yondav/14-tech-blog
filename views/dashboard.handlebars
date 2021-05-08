@@ -61,33 +61,6 @@
           <p class="post-text">
             post: <span class="string">'{{ post.blog_content }}'</span>,
           </p>
-          <p class="post-text">comments: <span class="comments-expand">{...} <i class="fas fa-sort-down expand"></i></span></p>
-          <div class="comments indent hide">
-            <p class="bracket">[</p>
-            <div class="single-comment d-flex">
-              <div class="indent">
-                {{#each post.post_comments as |comment|}}
-                <p class="curly">{</p>
-                {{#if (if_equal ../../userId comment_author.id)}}
-                <div class="d-flex flex-column">
-                  <div class="d-flex justify-content-end">
-                    <i class="far fa-edit comment-edit blue me-2" data-comment="{{comment.id}}"></i>
-                    <i class="far fa-trash-alt comment-delete red me-2" data-comment="{{comment.id}}"></i>
-                  </div>
-                  {{> comment-edit}}
-                </div>
-                {{/if}}
-                <div class="indent">
-                  <p>comment: <span class="string comment-content">'{{ comment.comment_content }}'</span>,</p>
-                  <p>author: <span class="string comment-author" data-author="{{comment_author.id}}">'{{ comment_author.username }}'</span>,</p>
-                  <p class="created">// {{ format_date comment.createdAt }}</p>
-                </div>
-                <p class="curly">},</p>
-                {{/each}}
-              </div>
-            </div>
-            <p class="bracket">],</p>
-          </div>
         </article>
         <h4 class="close-post">},</h4>
       </div>

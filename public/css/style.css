@@ -190,7 +190,9 @@ input {
 }
 
 .comment-delete,
-.comment-edit {
+.comment-edit,
+.post-delete,
+.post-edit {
   cursor: pointer;
 }
 

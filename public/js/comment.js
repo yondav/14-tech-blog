@@ -49,7 +49,6 @@ commentDelete.forEach((comment) => {
 
 commentEdit.forEach((comment) => {
   commentEditHandler = () => {
-    event.preventDefault;
     const commentId = comment.dataset.comment;
     const editForm = document.querySelectorAll('.edit-comment');
 
